@@ -1,0 +1,1 @@
+import{songFromBeatSaber}from"./bssong.js";self.onmessage=e=>{const{id,bs,channels,sr,opt}=e.data;try{self.postMessage({id,song:songFromBeatSaber(bs,channels,sr,opt)})}catch(err){self.postMessage({id,error:String(err)})}};

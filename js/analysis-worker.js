@@ -1,0 +1,1 @@
+import{analyzeHarmony}from"./analysis.js";self.onmessage=e=>{const{id,channels,sr,song}=e.data;try{self.postMessage({id,harmony:analyzeHarmony(channels,sr,song)})}catch(err){self.postMessage({id,error:String(err)})}};

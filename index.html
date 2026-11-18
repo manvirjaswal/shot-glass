@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Shot Glass: a VR rhythm shooter played with your bare hands. Open this page in the Quest Browser.">
+<title>Shot Glass</title>
+<link rel="preload" href="fonts/BarlowCondensed-Medium.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/BarlowCondensed-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+  @font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed-Medium.ttf") format("truetype"); font-weight: 500; font-display: block; }
+  @font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed-Bold.ttf") format("truetype"); font-weight: 700; font-display: block; }
+  :root { --bg: #05060a; --ink: #eef3ff; --dim: #8d96aa; --accent: #ffd166; --warm: #fff6e3;
+    --font: "Barlow Condensed", "Avenir Next Condensed", "Arial Narrow", system-ui, sans-serif; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); overflow: hidden; font: 500 18px/1.4 var(--font);
+    -webkit-font-smoothing: antialiased; }
+  canvas { display: block; }
+  #start { position: fixed; inset: 0; display: grid; place-content: center; justify-items: center; text-align: center; padding: 24px;
+    background: linear-gradient(180deg, rgba(5,6,10,0) 52%, rgba(5,6,10,.78) 80%, rgba(5,6,10,.94)),
+      radial-gradient(ellipse 70% 60% at 50% 46%, rgba(5,6,10,.25), rgba(5,6,10,.82) 72%, rgba(5,6,10,.95)); }
+  h1 { margin: 0; font-weight: 500; font-size: clamp(40px, 7.4vw, 84px); line-height: 1; letter-spacing: .34em; margin-right: -.34em;
+    text-shadow: 0 0 .28em rgba(238,243,255,.5), 0 0 .9em rgba(200,220,255,.18); }
+  .ver { margin-top: 18px; font-size: 15px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
+  #enter { position: relative; margin-top: 56px; display: inline-flex; align-items: center; gap: 16px; padding: 22px 54px 22px 46px;
+    border-radius: 18px; border: 1.5px solid rgba(255,209,102,.85); border-top-color: #ffedc2; border-bottom-color: rgba(255,209,102,.95);
+    background: linear-gradient(180deg, rgba(255,209,102,.3), rgba(255,170,60,.12)), linear-gradient(180deg, rgba(30,34,46,.62), rgba(8,9,14,.72));
+    box-shadow: 0 0 34px rgba(255,209,102,.3), inset 0 0 20px rgba(255,209,102,.26), inset 0 1px 0 rgba(255,244,214,.55);
+    color: var(--warm); font: 700 30px/1 var(--font); letter-spacing: .2em; text-transform: uppercase; text-shadow: 0 0 12px rgba(255,209,102,.75);
+    cursor: pointer; transition: box-shadow .2s, border-color .2s, opacity .3s, transform .08s; -webkit-tap-highlight-color: transparent; }
+  #enter::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.03) 42%, transparent 70%); }
+  #enter span { margin-right: -.2em; }
+  #enter svg { filter: drop-shadow(0 0 6px rgba(255,209,102,.8)); }
+  #enter:hover:not(:disabled) { border-color: #ffe2a0; box-shadow: 0 0 48px rgba(255,209,102,.45), inset 0 0 26px rgba(255,209,102,.34), inset 0 1px 0 rgba(255,244,214,.7); }
+  #enter:active:not(:disabled) { transform: translateY(1px); }
+  #enter:focus-visible { outline: 2px solid rgba(255,237,194,.9); outline-offset: 6px; }
+  #enter:disabled { opacity: .4; cursor: default; box-shadow: none; }
+  #status { margin-top: 26px; max-width: 560px; min-height: 1.4em; color: var(--dim); font-size: 19px; letter-spacing: .03em; }
+</style>
+</head>
+<body>
+<div id="start">
+  <h1>SHOT GLASS</h1>
+  <div class="ver" id="ver"></div>
+  <button id="enter" disabled><span>Enter VR</span></button>
+  <div id="status">Loading…</div>
+</div>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+<script type="module" src="js/vrapp.js"></script>
+</body>
+</html>

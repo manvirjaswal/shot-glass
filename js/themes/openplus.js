@@ -1,0 +1,1 @@
+import{create as createFlow,info as flowInfo}from"./mangaflow.js";export const info={...flowInfo,name:"Manga",fx:"ink",blurb:"The open manga stage: you stand in the place, shadows cast in screentone, framed windows, the voice's notes rising, wind on each phrase, ink motes, and hits and shots drawn in ink."};export const create=scene=>createFlow(scene);
