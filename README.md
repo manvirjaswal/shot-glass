@@ -9,7 +9,7 @@ Enter VR.
 
 - Hands only, from the first menu to the results. Controllers also work.
 - Made to be played seated: everything is in front of you, and nothing asks you to stand, step or lean.
-- A three-minute tutorial, four songs, five difficulties from Easy to Master.
+- A three-minute tutorial, four songs, six difficulties from Easy to Master.
 
 ## Controls (hand tracking)
 
